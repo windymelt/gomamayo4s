@@ -12,7 +12,7 @@ https://scala-cli.virtuslab.org
 
 ## Prerequisites
 
-事前にkabosu用の辞書ファイルをダウンロードする必要があります。`fetch-dict.sh`を実行すると辞書がダウンロードされますが、126MiBのファイルがダウンロードされるため通信帯域に注意してください。
+事前にsudachi用の辞書ファイルをダウンロードする必要があります。`fetch-dict.sh`を実行すると辞書がダウンロードされますが、126MiBのファイルがダウンロードされるため通信帯域に注意してください。
 
 ```scala
 % ./fetch-dict.sh
