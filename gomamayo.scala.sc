@@ -163,10 +163,11 @@ def showCheckGomamayoSudachi(sentence: String): String = {
   )
   val result = moras
     .sliding(2)
-    .flatMap { case List((i, mora1, sur1), (_, mora2, sur2)) =>
-      checkGomamayo(mora1, mora2).map { overwrappedLength =>
-        i -> (sur1, mora1, sur2, mora2, overwrappedLength)
-      }
+    .flatMap {
+      case List((i, mora1, sur1), (_, mora2, sur2)) =>
+        checkGomamayo(mora1, mora2).map { overwrappedLength =>
+          i -> (sur1, mora1, sur2, mora2, overwrappedLength)
+        }
       case _ => List()
     }
     .toMap
@@ -174,16 +175,17 @@ def showCheckGomamayoSudachi(sentence: String): String = {
   val message = moras
     .sliding(2)
     .toList
-    .map { case List((i, mora1, sur1), (_, mora2, sur2)) =>
-      result
-        .get(i)
-        .map { case (sur1, mora1, sur2, mora2, overwrappedLength) =>
-          s"${emphString(sur1)}(${mora1.substring(0, mora1.length - overwrappedLength)}${emphString(
-              mora1.substring(mora1.length - overwrappedLength)
-            )})${emphString(sur2)}(${emphString(mora2.substring(0, overwrappedLength))}${mora2
-              .substring(overwrappedLength)})"
-        }
-        .getOrElse(sur1)
+    .map {
+      case List((i, mora1, sur1), (_, mora2, sur2)) =>
+        result
+          .get(i)
+          .map { case (sur1, mora1, sur2, mora2, overwrappedLength) =>
+            s"${emphString(sur1)}(${mora1.substring(0, mora1.length - overwrappedLength)}${emphString(
+                mora1.substring(mora1.length - overwrappedLength)
+              )})${emphString(sur2)}(${emphString(mora2.substring(0, overwrappedLength))}${mora2
+                .substring(overwrappedLength)})"
+          }
+          .getOrElse(sur1)
       case _ => List()
     }
     .mkString
