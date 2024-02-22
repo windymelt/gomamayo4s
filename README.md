@@ -1,5 +1,7 @@
 # gomamayo4s
 
+[![BSD-3-Clause LICENSE](https://img.shields.io/github/license/windymelt/gomamayo4s)](./LICENSE)
+
 ![screenshot](./gomascreen.png)
 
 このツールはゴママヨを検出するためのCLIツールです。アルファ版であり、APIは常に変更されます。
