@@ -29,3 +29,7 @@ Archive:  sudachi.zip
 % scala-cli ./gomamayo.scala.sc -- このプログラムを実行する必要要件は辞書ファイルです
 このプログラムを実行する必要(ヒツヨウ)要件(ヨウケン)は辞書ファイルです
 ```
+
+## Inside gomamayo4s
+
+![diagram of PDA](./gomamayo.drawio.png)
