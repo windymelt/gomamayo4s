@@ -1,5 +1,7 @@
 # gomamayo4s
 
+![screenshot](./gomascreen.png)
+
 このツールはゴママヨを検出するためのCLIツールです。アルファ版であり、APIは常に変更されます。
 
 Scala CLIで動作します。
