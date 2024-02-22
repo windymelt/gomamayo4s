@@ -1,6 +1,6 @@
 # gomamayo4s
 
-[![BSD-3-Clause LICENSE](https://img.shields.io/github/license/windymelt/gomamayo4s)](./LICENSE)
+[![BSD-2-Clause LICENSE](https://img.shields.io/github/license/windymelt/gomamayo4s)](./LICENSE)
 
 ![screenshot](./gomascreen.png)
 
