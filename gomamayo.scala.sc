@@ -172,25 +172,25 @@ def showCheckGomamayoSudachi(sentence: String): String = {
     }
     .toMap
 
-  val message = moras
-    .sliding(2)
-    .toList
-    .map {
-      case List((i, mora1, sur1), (_, mora2, sur2)) =>
-        result
-          .get(i)
-          .map { case (sur1, mora1, sur2, mora2, overwrappedLength) =>
-            s"${emphString(sur1)}(${mora1.substring(0, mora1.length - overwrappedLength)}${emphString(
-                mora1.substring(mora1.length - overwrappedLength)
-              )})${emphString(sur2)}(${emphString(mora2.substring(0, overwrappedLength))}${mora2
-                .substring(overwrappedLength)})"
-          }
-          .getOrElse(sur1)
-      case _ => List()
-    }
-    .mkString
+  val message = moras.foldRight[List[String]](Nil) {
+    case ((i, mora, sur), acc) =>
+      result
+        .get(i)
+        .map { case (sur1, mora1, sur2, mora2, overwrappedLength) =>
+          emphString(sur1) + "(" + mora1.substring(
+            0,
+            mora1.length - overwrappedLength
+          ) + emphString(
+            mora1.substring(mora1.length - overwrappedLength)
+          ) + ")" + emphString(sur2) + "(" + emphString(
+            mora2.substring(0, overwrappedLength)
+          ) + mora2
+            .substring(overwrappedLength) + ")" :: acc.tail
+        }
+        .getOrElse(sur :: acc)
+  }
 
-  message
+  message.mkString
 }
 
 println(showCheckGomamayoSudachi(args(0)))
