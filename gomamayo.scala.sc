@@ -1,4 +1,5 @@
-//> using scala 3.3.0
+//> using scala 3.3.8
+//> using options -Yfuture-lazy-vals -java-output-version:11
 //> using dep "com.worksap.nlp:sudachi:0.7.3"
 
 object Epsilon
